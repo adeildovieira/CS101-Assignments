@@ -1,0 +1,730 @@
+Learning Goals
+Understand differences and similarities
+Function definitions vs. function calls
+Functions with return statements vs. those without
+Functions with parameters vs. those without
+Functions can be arguments
+Be creative and learn lesson(s) about software design and engineering
+Create a small, working program, make incremental improvements.
+Read the directions and understand specifications
+
+** Introduction and Overview **
+
+In this assignment, you will design groups of faces (we may refer to a face also as a head) by creating functions that return strings and functions that print strings. Some functions will print an entire "face" and others will return strings representing parts of a face like eyes, chin, nose, hair, and so on.  You'll also write functions with parameters that are functions!
+
+Three examples of groups of faces are shown on the next page. These faces adhere to the requirements that are provided below. Each face-part and entire face must adhere to these style requirements or you'll receive minimal credit on the assignment.
+
+Here is one group of three faces, one face printed right after the other:
+
+
+ ||||||||||||||||
+
+  _____    _____  
+
+ /     \  /     \
+
+    O   ||   O    
+
+ \_____/  \_____/
+
+ |              |
+
+ |      /       |
+
+ |     /__      |
+
+ |    \____/    |
+
+ |              |
+
+ +--------------+
+
+ ||||||||||||||||
+
+  _____    _____  
+
+ /     \  /     \
+
+ o      || o      
+
+ \_____/  \_____/
+
+ |              |
+
+ |      /       |
+
+ |     /__      |
+
+ |    \____/    |
+
+ |              |
+
+ +--------------+
+
+ {{}}{{}}{{}}{{}}
+
+ }}{{{}}}{}{}{{}}
+
+  _____    _____  
+
+ /     \  /     \
+
+    O   ||   O    
+
+ \_____/  \_____/
+
+ |              |
+
+ |      /       |
+
+ |     /__      |
+
+ |   ________   |
+
+ |              |
+
+ +--------------+ 
+
+Here is a second group of three faces printed one after another:
+
+
+ ||||||||||||||||
+
+ ||||||||||||||||
+
+ ||||||||||||||||
+
+  _____    _____  
+
+ /     \  /     \
+
+    O   ||   O    
+
+ \_____/  \_____/
+
+ |              |
+
+ |      /       |
+
+ |     /__      |
+
+ |     ____     |
+
+ |    (    )    |
+
+ |    (____)    |
+
+ +--------------+
+
+ ||||////////////
+
+ +--------------+
+
+ |  ___    ___  |
+
+ | |___|--|___| |
+
+ |              |
+
+ |       \      |
+
+ |      __\     |
+
+ |    \____/    |
+
+ |              |
+
+ +--------------+
+
+ ||||||||||||||||
+
+  _____    _____  
+
+ /     \  /     \
+
+ o      || o      
+
+ \_____/  \_____/
+
+ |              |
+
+ |      /       |
+
+ |     /__      |
+
+ |    \____/    |
+
+ |              |
+
+ +--------------+
+
+
+Here is a third group of three faces printed one after another:
+
+
+
+ {{}}{{}}{{}}{{}}
+
+ }}{{{}}}{}{}{{}}
+
+ +--------------+
+
+ |shr        shr|
+
+ +--------------+
+
+ |  ___    ___  |
+
+ | |___|--|___| |
+
+ |              |
+
+ |       \      |
+
+ |      __\     |
+
+ |    \____/    |
+
+ |              |
+
+ +--------------+
+
+ ||||////////////
+
+ +--------------+
+
+ |shr        shr|
+
+ +--------------+
+
+ |  ___    ___  |
+
+ | |___|--|___| |
+
+ |              |
+
+ |       \      |
+
+ |      __\     |
+
+ |    \____/    |
+
+ |              |
+
+ +--------------+
+
+ ||||||||||||||||
+
+ +--------------+
+
+ |shr        shr|
+
+ +--------------+
+
+ |  ___    ___  |
+
+ | |___|--|___| |
+
+ |              |
+
+ |       \      |
+
+ |      __\     |
+
+ |     ____     |
+
+ |    (    )    |
+
+ |    (____)    |
+
+ +--------------+
+
+
+There are no requirements on what your group of faces look like, but there are requirements on the number of characters in each line you print (18 characters), the names of the functions, and the three groups of faces your program must print.
+
+This assignment will help you gain a better understanding of writing/calling functions, the difference between returning and printing, and the importance of adhering to design standards. It is also designed so that you can demonstrate some creativity, which is one of the important aspects of creating computational artifacts.
+
+Assignment: Reading Quiz
+In Sakai, under “Tests & Quizzes” there is a reading quiz for this assignment. It is to help ensure you understand what this assignment is asking you to do and some of the key concepts in this assignment. You have unlimited tries and it will count towards your reading quiz grade. Note this quiz is due earlier than the assignment is due, and does not have a grace day. The intent of these assignment reading quizzes are that you do them early to check your understanding of the assignment. You can take the quiz right after reading through this assignment and for assignment quizzes you can take them as many times as you want until they are due! After they are due, you can still take them until the assignment is due, but only once. You cannot extend the due date for assignment reading quizzes. So be sure to take them early!
+
+**Programming Tasks to Complete**
+You'll create a project following the steps outlined in the project creation details section below. You'll plan, develop, test, and submit a Python module named Faces.py that draws three groups of faces, with three faces in each group. This module must use a main program block as specified below. This is where code begins running when your program executes with a Python interpreter. In the main block you will call three functions, and each function will print one group of three faces:
+
+The function faces_fixed() prints the same group of three faces each time it's called. The "fixed" indicates that the faces doesn't change.
+The function faces_selfie() prints a group of three faces in which each face has a selfie band someplace in the face (top, middle, bottom). See below for details on the specification of a selfie band.
+The function faces_random() prints a possibly different group of three faces each time the program is run. The function does this by choosing characteristics (such as which mouth or which eyes) to draw based on a random number as described below.
+How to Complete The Program
+You should not write the entire program and then run and test it. Programs are best written incrementally; for example, rather than writing all 12 (or more) face part functions at once, you could first write enough of these to make one whole face function work, and then move on to the others. In general, creating a program that works by doing something, and then adding to the working program, is much more efficient in terms of programming time than writing the entire program at once and then testing it. Start small, make the small program work, then make the program more complete.
+
+**Functions You Must Write**
+In total you'll need to design, implement, and test about 25 functions as described here. As stated above, don't write all 25 before you run and test your program. You must follow specific naming conventions and use underscores "_" to separate the words in your function names. The naming conventions are further described below with examples:
+
+You'll write 12 or more face part functions that each return a string. These functions must be named using the convention part_DESCRIPTION, e.g., part_mouth_smile, or part_eyes_glasses, or part_hair_pointy. More details are given below.
+You'll write three or more whole face functions without parameters that each print a complete face by calling some face part functions and printing the strings returned. These functions should have no parameters and should be named DESCRIPTION_face, e.g., surprised_face, or glasses_face.
+You'll write three or more whole face functions that each have one or two parameters. Each parameter is the name of a face part function that will be called. These should be named face_with_DESCRIPTION, e.g., face_with_mouth, or face_with_hair, or face_with_multi.
+You'll write three faces functions as described above at the beginning of this section: faces_fixed, faces_selfie, faces_random. Each of these functions calls three of the whole face functions to print a group of three faces.
+You'll need to write a helper function named selfie_band. (You can also write other helper functions that might be useful in creating faces. See below for more examples.)
+You'll need to write a helper function named face_random that uses the random module and the function random.randint to print a different face each time it's called. The face_random function should make use of one of your whole face functions with parameters, and it must be called from within faces_random.
+
+**Reminders/Tips Before Starting**
+
+Work through the assignment in the order that the instructions are given.
+Pay strict attention to the specifications for names and return values in the assignment. You will not get credit for this assignment otherwise.
+Document your code! Every function you write must have a docstring comment describing what it does. This includes any helper functions you write that are not explicitly asked for in these instructions. It will be easier to do this if you write comments as you write your functions, rather than having to go back and remember the purpose of each function after finishing the assignment. It is recommended to keep docstrings around 80 characters. Also see the docstring tips below.
+Be creative and have fun!
+
+***Completing the Assignment***
+
+**Creating the Project**
+
+Create a new project in Pycharm. You can name the project whatever you want, but we suggest 101-assign1-faces. To create a new project:
+Click on File, then New Project...
+Give the project a name, like 101-assign1-faces (Remember Python 3!) by changing the text highlighted in blue (by default it should be something like untitled, untitled1, etc.)
+Make sure you're using the option “Existing interpreter” with one of the interpreters you’ve already made for this class.
+Click Create
+You should see your new project on the left in the Project View
+In your project, create a new Python File called Faces.py:
+Right click on your new project
+Click on File > New > Python File
+Name the file Faces, and press enter
+The new module should contain (1) a comment with the date and author name and (2) a main block (if not, please revisit the Pycharm install instructions to import the associated setting):
+    if __name__ == '__main__':
+
+Change the file width from the default of 120 to 80. To do this, click on File > Settings > Editor > Code Style (OR click on PyCharm > Preferences > Editor > Code Style)  and then type 80 where it says Hard wrap at 120. Check the Wrap on typing box, as well.
+
+
+All programming for this assignment will be in this module.
+
+
+**The Main Program Block**
+First, copy/paste or retype the main program block given below:
+
+
+
+if __name__ == '__main__':
+
+    print("\nfixed group of three faces\n")
+
+    faces_fixed()
+
+   
+
+    print("\ngroup of three self faces\n")
+
+    faces_selfie()
+
+   
+
+    print("\ngroup of three random faces\n")
+
+    faces_random()
+
+
+In order to get this to run, you'll need to define the three functions that are called from the main block. For now, as a test, make the body of each function a single print statement, such as print("faces fixed"). Then you can run your program to see that it works. Once your program runs with the three faces functions each printing a single line, continue with the rest of the assignment.
+
+
+Note: As you begin to submit your assignment to Gradescope, if you see the error message “Unexpected error while running assessment” from the autograder, this is likely due to an unexpected print statement. Do not print nor call functions outside of the main program block (e.g., the line faces_fixed() should not be in any line above the main block). Doing this will prevent the autograder from properly assessing the assignment. This means that outside of your main program block, you are only defining functions. See the note below about defining vs. calling functions.
+
+**Completing the Functions**
+
+- Face Part Functions
+Each face part function should return a string that could be printed to be part of a face (e.g. hat, hair, ears, eyes, nose, mouth, chin, beard, etc.). You must create a minimum of 12 face part functions, but we suggest you write just enough to create one face and test them before moving on. You must create functions of at least three different kinds/types, (e.g. nose, hair, mouth, eyes, etc.). You must create at least three functions for three of these types (e.g. three nose functions, three hair functions, and three mouth functions). As long as three different parts each have at least three choices, you can have more than three functions for some face parts. Make sure to keep in mind these requirements:
+
+The face part functions must be named as specified: the word “part”, an underscore, the part of the face, an underscore, and a description, e.g. part_eyes_glasses or part_chin_pointed.
+Each face part function must return a string exactly 18 characters long where both the first and last characters are spaces. You can include other space characters within the string returned.
+Each function needs a docstring comment between triple quotes at the beginning of the function. The docstrings for the face part functions can be simple (see examples below).
+You should use raw strings-- that is, the letter r should precede the first quote of the string. This will allow you to use backslashes easily in your returned strings. (See the note below for more about raw strings.)
+Here are two examples that illustrate face part functions that adhere to these specifications:
+
+def part_hair_pointy():
+
+    """
+
+    Returns a string that is
+
+    pointy hair
+
+    """
+
+    a1 = r"012345678901234567"
+
+    a2 = r" /\/\/\/\/\/\/\/\ "
+
+    return a2
+
+
+def part_nose_up():
+
+    """
+
+    Returns a string that is
+
+    an upturned nose
+
+    """
+
+    a  = r"012345678901234567"
+
+    a  = r" |      /\      | " + "\n"
+
+    a += r" |     /  \     | "
+
+    return a
+
+
+You'll see in part_hair_pointy that a variable a1 is created but not returned. For part_nose_up, the variable a is first assigned the same string, but then it’s reassigned to the first string of the nose. This string simply allows you to construct the other strings that will be returned so that each string has the right format: having spaces for the first and last characters and being exactly 18 characters long (including these spaces).
+
+As the example functions show, the string returned can span more than one line. Simply concatenate each string and separate them with a newline character "\n", except for the last line.
+
+Whole Face Functions Without Parameters
+You must write at least three whole face functions without parameters as explained above. Rather than writing all three at once, we suggest writing one and testing it before writing more. Remember:
+
+Each function must be named DESCRIPTION_face.
+Each function must take no parameters.
+Each function must call face part functions and print their return value.
+Each function must have a docstring comment at the beginning.
+Here's an example:
+
+def funny_face():
+
+    """
+
+    Print a face that looks a little funny,
+
+    With surprised mouth and eyebrows
+
+    """
+
+    print(part_hair_plain())
+
+    print(part_eyes_withbrows())
+
+    print(part_nose_big())
+
+    print(part_mouth_surprised())
+
+    print(part_chin_plain())
+
+faces_fixed()
+The function faces_fixed() simply prints three faces, one after another. As a test, you can call a single face function three times, e.g. the funny_face() function shown above. As you complete more face functions, you should call three different functions within faces_fixed(). Be sure to include a docstring comment.
+
+def faces_fixed():
+
+    """
+
+    Print the same group of faces with three
+
+    faces, one funny, one this, one the other
+
+    """
+
+    funny_face()
+
+    funny_face()
+
+    funny_face()
+
+
+At this point, you can test that your code prints out a group of three faces by running faces.py.
+
+
+If you’ve been working incrementally as we recommend, you should go back and add some more face part functions and at least one more whole face function at this point. See the specifications above to remind yourself how many of each you'll need. You may choose to do some now and some after the next steps.
+
+Whole Face Functions With Parameters
+For the whole face functions with parameters, each parameter will be the name of a function for one type of face part, e.g. mouth or eyes. Functions can be parameters in Python! You'll need to be careful to pass the name of the function, and not the return value. Here's an overview of the requirements and an example:
+
+Name the function face_with_DESCRIPTION, e.g., face_with_mouth.
+Name the parameter mouthfunc or eyefunc, or more generally partfunc.
+Create a face by calling face part functions and printing the results, just as you did earlier. One of the function calls will be the parameter as shown below where parameter mouthfunc is called in the body of face_with_mouth.
+def face_with_mouth(mouthfunc):
+
+    """
+
+    Print a face with eyebrows and a big nose,
+
+    but with a mouth specified by mouthfunc
+
+    """
+
+    print(part_hair_plain())
+
+    print(part_eyes_withbrows())
+
+    print(part_nose_big())
+
+    print(mouthfunc())
+
+    print(part_chin_plain())
+
+
+You'll call the face_with_mouth function by passing a function name as follows, e.g. to create three different faces that have the same features except for the mouth:
+
+   face_with_mouth(part_mouth_surprised)
+
+   face_with_mouth(part_mouth_smile)
+
+   face_with_mouth(part_mouth_frown)
+
+
+Things to keep in mind about using functions as parameters:
+
+The parameter, e.g., mouthfunc, is the name of a function. You call it in the body of the face_with_x function like you call any function: by adding parentheses to the function name.
+When you call the face_with_x function, you pass the name of a face part function. You do not call this face part function when passing it as a parameter! You pass its name.
+Be careful, because when you write the function to pass, e.g., part_mouth_smile, Pycharm may autocomplete the parentheses. If you call the function part_mouth_smile when passing it as a parameter, e.g.,
+face_with_mouth(part_mouth_smile())  # Don’t do this!
+
+then you'll be passing the return value of part_mouth_smile(), a string, rather than passing the name of the function. This will generate a Type error: 'str' is not callable because the code in face_with_x will try to call the string passed as if it’s a function.
+
+You'll need to implement three whole face functions with parameters. You can optionally have one function which takes more than one parameter, e.g. the name of a mouth function and the name of a hair function. Be sure to call one of your whole face functions with parameters from inside face_random() as described below so that your random group of faces includes one of these faces. (Feel free to use the remaining two of these functions in either of the other groups of faces.)
+
+faces_selfie() and selfie_band()
+For the faces_selfie()function, you'll need a helper function named selfie_band(). This helper function generates a band just like the one below, but using your NetID:
+
+ +--------------+
+
+ |shr        shr|
+
+ +--------------+
+
+
+The top and bottom lines can be different, but the function must return a string that spans three lines. The middle string must consist of a vertical bar immediately followed by your NetID, spaces, and end with your NetID and another vertical bar. If your netid is very long, then you can use 3 or more characters for your netid.
+
+Like in the face part functions, the first and last characters must be a space, and the total number of characters must be 18.
+
+You'll need to create three faces with selfie bands. You can do this any way you'd like to, but each face must be different and must include a selfie band. You might find it useful (though it’s not required) to create a function named selfie() with parameters to do this. Here's the body of an example faces_selfie() function using the optional selfie() helper function:
+
+def faces_selfie():
+
+    """
+
+    Print a group of three faces with selfie band
+
+    By calling the selfie() helper function
+
+    """
+
+    selfie(part_hair_curly, part_mouth_frown)
+
+    selfie(part_hair_pointy, part_mouth_smile)
+
+    selfie(part_hair_uplow, part_mouth_open)
+
+
+You do need to complete the faces_selfie() function to make three function calls, each of which generates a different face. Remember, each face should have a selfie band.
+
+At this point, before continuing, you should verify that you've got all the functions you need for both face part functions, whole face functions, and faces_fixed() and faces_selfie(). Read the specifications carefully to be sure you've got things working before implementing the faces_random() function.
+
+faces_random() and face_random()
+For the faces_random()function, you'll need a helper function named face_random(). The face_random() helper function will generate a different face each time it's called. Your program will need to generate random numbers using the random module and then use these numbers to specify parameters for function calls. face_random() must be called in the function body of faces_random() as shown:
+
+def faces_random():
+
+    """
+
+    Print three random faces
+
+    using face_random()
+
+    """
+
+    face_random()
+
+    face_random()
+
+    face_random()
+
+
+At the top of Faces.py (under the module docstring) you'll need to import the random module, e.g. you'll write
+
+import random
+
+You'll need to call random.randint(low,high), e.g. random.randint(1,4) to generate a random integer between low and high (inclusive). Store this value in a variable and use it to generate different faces by choosing face part functions to pass to one of your whole face functions with parameters. Here is an example of how to use a random value to create different calls to a whole face function that takes parameters:
+
+def face_random():
+
+    """
+
+    Print a face with randomly chosen
+
+    mouth and eyes
+
+    """
+
+    eyefunc = part_eye_glasses
+
+    mouthfunc = part_mouth_open
+
+    x = random.randint(1,3)
+
+    if x == 1:
+
+        mouthfunc = part_mouth_frown
+
+    elif x == 2:
+
+        eyefunc = part_eye_withbrows
+
+    else:
+
+        mouthfunc = part_mouth_surprised
+
+        eyefunc = part_eye_closed
+
+
+    # now call the function
+
+    face_with_two(eyefunc,mouthfunc)
+
+
+Now run Faces.py multiple times. Each time you run it, the first two groups of faces should remain the same but the random group of faces should change.
+
+Testing Instructions (myRuns.txt)
+Create a new text file called myRuns.txt. (It will be most convenient to create this file in your Python project.) In the Pycharm menu, go to File -> New -> File, then name the file myRuns.txt, press enter, and select Text from the list of file types. Run Faces.py. Copy and paste the output that was printed in the console into this text file and save it.
+
+**Grading**
+This assignment is worth 31 points.
+
+Autograded portion [26 points]
+[7] Implementations of face part functions
+2 points for at least 7 face part functions
+3 points for 12 or more face part functions
+2 points for returning lines that are 18 characters wide
+[12] Implementations of whole face functions
+6 points given to whole face functions with no parameters
+6 points given to whole face functions with parameters
+[4] 1 point for implementing each of the following:
+faces_fixed()
+faces_random()
+faces_selfie()
+selfie_band()
+[2] Implementation of face_random()
+1 point for implementing face_random() with the random.randint(...) function
+1 point for face_random() calling a whole face function with parameters
+[1] 1 point for submitting myRuns.txt
+Hand-graded portion [5 points]
+2 points for docstring comments/name
+1 point for all three groups of faces in myRuns.txt
+1 point for having NetID or part of NetID (3 or more characters ok) in selfie_band()
+1 point for submitting a reflect
+Checklist Before Submitting
+Reading Quiz
+In Sakai, under “Tests & Quizzes” there is a reading quiz to check your understanding of the assignment. It has an earlier deadline!
+Faces.py
+The module should contain the face part and whole face functions specified earlier in this write-up. Be sure you've got all the functions, they are named appropriately, they all have docstring comments, and that each function works!
+The only functions with print statements are your whole face functions, and maybe the optional selfie() helper function. (The prints in the main block are not in a function.) The Gradescope tests may score the submission wrong if your code calls print in any other function.
+The module should contain three faces functions so that the main body works as specified in this assignment.
+Every function you wrote must have a docstring comment describing what it does. This includes any helper functions you wrote that are not explicitly asked for in these instructions.
+When Faces.py is run, three groups of faces (or faces) should print to the console. The third group is likely different each time the program runs. The second group is the selfie group.
+You should have a comment with your name at the top of Faces.py.
+myRuns.txt
+This file should contain the console output of one run of Faces.py.
+What to Submit
+Faces.py
+myRuns.txt
+Submission Instructions
+Log in to Gradescope.
+Under the CompSci 101 course dashboard, click Assignment 1: Faces.
+Click Submit Programming Assignment, click “Click to browse”, and select Faces.py. Then click “Browse Files” again and select myRuns.txt.
+Once the two files are selected, click Upload.
+
+You can submit more than once. Your last submission will be graded.
+
+After Submitting
+Fill out the Reflect form on the course assignment page.
+Important Distinctions to Understand about Functions and Strings
+Defining a function vs. calling a function
+Defining a function is the same as writing a function. Below is an example of the definition of a function:
+
+def print_message():
+
+    print(“hello”)
+
+This function is not executed (in other words, it doesn’t do anything) until it is called. Calling the function looks like this:
+
+        print_message()
+
+When your program executes a function call, it executes the function definition. In this example, when the program reaches the line print_message() in the code, it then executes the body of print_message and prints the string “hello” to the console.
+
+Print vs. return
+The print function displays whatever is inside the parentheses in the console. For example, print(“hello”) displays the string “hello” in the console. The arrow below points to where you can find the console in Pycharm. If you do not see the console, click Python Console in the toolbar at the bottom of the screen. If it is not there, go to Tools -> Python Console… in the Pycharm menu.
+
+
+
+A return statement causes a function to exit/stop executing and returns back the value that is being returned to wherever the function was called. This allows you to use/store the output of the function (i.e. the value that the function returns) outside of the function after calling the function. See the example below:
+
+        def simple_addition():
+
+            return 1 + 2
+
+
+        x = simple_addition()
+
+Since the function simple_addition returns the value 3, the variable x now has/stores the value 3. When this code is executed, nothing appears in the console because the print function is never used.
+
+It’s important to remember that if a function does not return anything, then it will not have any output. See the example below:
+
+def simple_addition():
+
+    print(1 + 2)
+
+
+x = simple_addition()
+
+print(x)
+
+When this code executes, the function simple_addition prints the value 3 to the console. However, since the function doesn’t return anything, the variable x is given the value None. Therefore, print(x) displays the value None in the console. If while you are working on this assignment the value None is displayed in the console and you aren’t sure why, it is probably because you are printing the result/output of a function that doesn’t return anything.
+
+A string vs. a raw string
+In Python, the backslash (“\”) is an escape character. This means that when a backslash is in a string, Python does not read it as a literal backslash, but rather uses it to determine how it should interpret the following characters. For example, “n” is simply a string of the letter n, but “\n” is the symbol for a newline. There are many other sequences that make special characters, but “\n” will be the most useful for you in this assignment.
+
+If you print the string “\\\”, Python will interpret the first backslash as an escape character and the remaining 2 as a literal backslashes, so only 2 backslashes will display in the console. To avoid this problem, you can use raw strings, which are simply strings that are preceded by the letter r (Ex. r“\\\”, r“hello”, r“\nn”). Python interprets raw strings exactly as they are written; backslashes are interpreted as literal backslashes, not as escape characters. print(“\\\”) will print 2 backslashes to the console, but print(r“\\\”) will print 3 backslashes to the console.
+
+One exception to using raw strings is that you cannot end the string with a single backslash or any other odd number of backslashes. If you want to end the string with an odd number of backslashes, then add a blank space at the end. For example, if you want to display the string “hello\\\” in the console, print the raw string r“hello\\\ ”. You don't need to worry about this in this assignment since every string in a face part function ends with a space.
+
+Tips for Docstring Comments
+Comment length
+It is generally good practice to keep docstring comments to a length of 80 characters or less. Here is what a comment of appropriate length looks like at the top of a function definition:
+
+def hair_spiky():
+
+    """
+
+    Returns spiky hair in a string that is
+
+    2 lines tall and 18 characters wide
+
+    """
+
+
+Here is an example of a comment that is too short:
+
+
+def hair_spiky():
+
+    """
+
+    Returns string for hair
+
+    """
+
+
+
+Here is an example of a comment that is too long:
+
+
+def hair_spiky():
+
+    """
+
+    Returns the following string for spiky hair
+
+    that is 2 lines tall and 18 characters wide
+
+     /\/\/\/\/\/\/\/\
+
+     /\/\/\/\/\/\/\/\  
+
+    """
+
+Line breaks and Pycharm
+Use Pycharm to help make your comments more readable with line breaks. If you have a long comment written on one line, you can select the entire line and then use the Pycharm menu option Edit → Fill Paragraph to introduce a line break automatically.
